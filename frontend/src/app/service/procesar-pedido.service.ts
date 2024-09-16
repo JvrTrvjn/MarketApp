@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -7,10 +7,14 @@ import { Observable } from 'rxjs';
 })
 export class ProcesarPedidoService {
 
-  constructor(http: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   categorias():Observable<any> {
     let url="http://localhost:8001/categorias";
+    return this.http.get(url);
+  }
+  productosCategorias(idCategoria:number){
+    let url="http://localhost:8001/productos/"+idCategoria;
     return this.http.get(url);
   }
 }
