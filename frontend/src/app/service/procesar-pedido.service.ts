@@ -15,6 +15,8 @@ export class ProcesarPedidoService {
   }
   productosCategorias(idCategoria:number){
     let url="http://localhost:8001/productos/"+idCategoria;
-    return this.http.get(url);
+    let params = new HttpParams();
+    params = params.append('id', idCategoria);
+    return this.http.get(url, { "params": params });
   }
 }

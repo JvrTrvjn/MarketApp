@@ -6,7 +6,7 @@ export class CarritoCompra{
 
     constructor()
     {
-        this.proyecto=new Producto();
+        this.producto=new Producto();
         this.unidades=0;
     }
 }
