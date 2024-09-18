@@ -17,6 +17,11 @@ export class ProcesarPedidoComponent implements OnInit {
   constructor(private procesarPedidoService: ProcesarPedidoService) { }
 
   ngOnInit(): void {
+    this.procesarPedidoService.categorias().subscribe(c=>this.categorias=c);
+  }
+
+  productosCategoria(){
+    this.procesarPedidoService.productosCategorias(this.idCategoriasSel).subscribe(p=>this.productos=p);
   }
 
 }
