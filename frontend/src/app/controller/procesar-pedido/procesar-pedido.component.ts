@@ -31,6 +31,8 @@ export class ProcesarPedidoComponent implements OnInit {
       item.producto=producto;
       item.unidades=producto.unidades;
       this.carrito.push(item);
+    }else{
+      alert("No hay suficientes unidades de este producto");
     }
   }
 
