@@ -36,4 +36,12 @@ export class ProcesarPedidoComponent implements OnInit {
     }
   }
 
+  quitarProductoCarrito(producto:CarritoCompra){
+  let index = this.carrito.indexOf(producto);
+  if(index !== -1){
+    this.carrito.splice(index, 1);
+  }else{
+    alert("No existe este producto en el carrito");
+  }
+  }
 }
