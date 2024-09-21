@@ -10,5 +10,5 @@ public interface ProductoService {
     List<Producto> productosPorCategoria(int idCategoria);
     Producto actualizarStock(int idProducto, int unidades);
     Producto productoPorCodigo(int idProducto);
-    
+
 }
