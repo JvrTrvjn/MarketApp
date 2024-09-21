@@ -19,6 +19,6 @@ import { ProcesarPedidoComponent } from './controller/procesar-pedido/procesar-p
     FormsModule
   ],
   providers: [],
-  bootstrap: [RegistrarComponent]
+  bootstrap: [ProcesarPedidoComponent]
 })
 export class AppModule { }
