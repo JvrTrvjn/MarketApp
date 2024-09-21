@@ -30,6 +30,9 @@ export class ProcesarPedidoComponent implements OnInit {
       let item = new CarritoCompra();
       item.producto = producto;
       item.unidades = producto.unidades;
+      //actualizar stock
+      producto.stock = producto.stock - producto.unidades;
+      
       this.carrito.push(item);
     } else {
       alert("No hay suficientes unidades de este producto");
