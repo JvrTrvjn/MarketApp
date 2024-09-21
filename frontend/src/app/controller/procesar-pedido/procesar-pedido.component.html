@@ -20,18 +20,18 @@
             </tr>
           </thead>
           <tbody>
-            <tr >
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><input type="text" class="form-control" ></td>
-                <td><input type="button" class="form-control" value="Agregar cesta" ></td>
+            <tr *ngFor="let p of productos">
+                <td>{{p.nombre}}</td>
+                <td>{{p.precioUnitario}}</td>
+                <td>{{p.stock}}</td>
+                <td><input type="text" class="form-control" [(ngModel)]="p.unidades" ></td>
+                <td><input type="button" class="form-control" value="Agregar cesta" (click)="agregarProductoCarrito(p)" ></td>
             </tr>
   
           </tbody>
         </table>
         <br><br>
-        <h1>Cesta de productos</h1>
+        <h1>Carrito de productos</h1>
         <table class="table">
           <thead class="thead-dark">
             <tr>
@@ -41,10 +41,10 @@
             </tr>
           </thead>
           <tbody>
-            <tr >
-                <td></td>
-                <td></td>
-                <td><input type="button" class="form-control" value="Quitar cesta" ></td>
+            <tr *ngFor="let c of carrito">
+              <td>{{c.producto.nombre}}</td>
+              <td>{{c.unidades}}</td>
+                <td><input type="button" class="form-control" value="Quitar cesta" (click)="eliminarProductoCarrito(carrito.indexOf(c))" ></td>
             </tr>
   
           </tbody>
