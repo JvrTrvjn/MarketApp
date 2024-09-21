@@ -32,19 +32,17 @@ export class ProcesarPedidoComponent implements OnInit {
       item.unidades = producto.unidades;
       //actualizar stock
       producto.stock = producto.stock - producto.unidades;
-      
+
       this.carrito.push(item);
     } else {
       alert("No hay suficientes unidades de este producto");
     }
   }
 
-  quitarProductoCarrito(producto: CarritoCompra) {
-    let index = this.carrito.indexOf(producto);
-    if (index !== -1) {
-      this.carrito.splice(index, 1);
-    } else {
-      alert("No existe este producto en el carrito");
-    }
+  eliminarProductoCarrito(index: number) {
+    let item = this.carrito[index];
+    this.carrito.splice(index, 1);
+    //actualizar stock
+    let producto = this.productos.find(p => p.idProducto == item.producto.idProducto);
   }
 }
