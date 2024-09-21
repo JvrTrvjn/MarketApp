@@ -42,7 +42,11 @@ export class ProcesarPedidoComponent implements OnInit {
   eliminarProductoCarrito(index: number) {
     let item = this.carrito[index];
     this.carrito.splice(index, 1);
-    //actualizar stock
+    //loclizamos el producto para actualizar stock
     let producto = this.productos.find(p => p.idProducto == item.producto.idProducto);
-  }
+    if (producto) {
+      producto.stock = producto.stock + item.unidades;
+    } else {
+      console.error('Producto no encontrado');
+    }  }
 }
