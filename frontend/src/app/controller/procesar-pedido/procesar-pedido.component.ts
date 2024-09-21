@@ -11,37 +11,37 @@ import { ProcesarPedidoService } from 'src/app/service/procesar-pedido.service';
 })
 export class ProcesarPedidoComponent implements OnInit {
 
-  categorias:Categoria[]=[];
-  productos:Producto[]=[];
-  idCategoriasSel:number=0;
-  carrito:CarritoCompra[]=[];
+  categorias: Categoria[] = [];
+  productos: Producto[] = [];
+  idCategoriasSel: number = 0;
+  carrito: CarritoCompra[] = [];
   constructor(private procesarPedidoService: ProcesarPedidoService) { }
 
   ngOnInit(): void {
-    this.procesarPedidoService.categorias().subscribe(c=>this.categorias=c);
+    this.procesarPedidoService.categorias().subscribe(c => this.categorias = c);
   }
 
-  productosCategoria(){
-    this.procesarPedidoService.productosCategorias(this.idCategoriasSel).subscribe(p=>this.productos=p);
+  productosCategoria() {
+    this.procesarPedidoService.productosCategorias(this.idCategoriasSel).subscribe(p => this.productos = p);
   }
 
-  agregarProductoCarrito(producto:Producto){
-    if(producto.unidades<=producto.stock){
+  agregarProductoCarrito(producto: Producto) {
+    if (producto.unidades <= producto.stock) {
       let item = new CarritoCompra();
-      item.producto=producto;
-      item.unidades=producto.unidades;
+      item.producto = producto;
+      item.unidades = producto.unidades;
       this.carrito.push(item);
-    }else{
+    } else {
       alert("No hay suficientes unidades de este producto");
     }
   }
 
-  quitarProductoCarrito(producto:CarritoCompra){
-  let index = this.carrito.indexOf(producto);
-  if(index !== -1){
-    this.carrito.splice(index, 1);
-  }else{
-    alert("No existe este producto en el carrito");
-  }
+  quitarProductoCarrito(producto: CarritoCompra) {
+    let index = this.carrito.indexOf(producto);
+    if (index !== -1) {
+      this.carrito.splice(index, 1);
+    } else {
+      alert("No existe este producto en el carrito");
+    }
   }
 }
