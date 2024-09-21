@@ -1,2 +1,4 @@
-package com.market.service;public interface ProductoService {
+package com.market.service;
+
+public interface ProductoService {
 }
