@@ -33,4 +33,14 @@ public class ProductosController {
     public ResponseEntity<Producto> productoCodigo(@RequestParam("idProducto") int idProducto){
         return new ResponseEntity<>(productoService.productoPorCodigo(idProducto), HttpStatus.OK);
     }
+
+    @PutMapping(value = "producto")
+    public ResponseEntity<Void> actualizarStock(@RequestParam("idProducto")int idProducto,@RequestParam("unidades") int unidades){
+        Producto producto = productoService.actualizarStock(idProducto, unidades);
+        if(producto != null){
+            return new ResponseEntity<>(HttpStatus.OK);
+        }else {
+            return new ResponseEntity<>(HttpStatus.CONFLICT);
+        }
+    }
 }
