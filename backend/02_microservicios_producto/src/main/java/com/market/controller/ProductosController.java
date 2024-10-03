@@ -35,12 +35,13 @@ public class ProductosController {
     }
 
     @PutMapping(value = "producto")
-    public ResponseEntity<Void> actualizarStock(@RequestParam("idProducto")int idProducto,@RequestParam("unidades") int unidades){
+    public ResponseEntity<String> actualizarStock(@RequestParam("idProducto")int idProducto, @RequestParam("unidades") int unidades) {
         Producto producto = productoService.actualizarStock(idProducto, unidades);
         if(producto != null){
-            return new ResponseEntity<>(HttpStatus.OK);
-        }else {
-            return new ResponseEntity<>(HttpStatus.CONFLICT);
+            return new ResponseEntity<>("Stock actualizado correctamente", HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>("Error: no hay suficiente stock para realizar la operación", HttpStatus.CONFLICT);
         }
     }
+
 }

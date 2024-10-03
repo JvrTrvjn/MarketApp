@@ -31,7 +31,7 @@ public class ProductoServiceImpl implements ProductoService{
     @Override
     public Producto actualizarStock(int idProducto, int unidades) {
         Producto producto = productoPorCodigo(idProducto);
-        if(producto != null & producto.getStock()>=unidades){
+        if(producto != null && producto.getStock()>=unidades){
             producto.setStock(producto.getStock() - unidades);
             productoRepository.save(producto);
             return producto;
