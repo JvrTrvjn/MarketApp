@@ -1,5 +1,5 @@
 
-select * from market.clientes;
+select * from market.clientes; 
 
 CREATE DATABASE IF NOT EXISTS market;
 USE market;
